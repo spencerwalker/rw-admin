@@ -36,7 +36,10 @@
                                 </ul>
                             </div>
                         </td>
-                        <td>{{buyer.ID}}</td>
+                        <td>
+                            <img class="buyer-logo" src="{{buyer.xp.image.URL}}" ng-if="buyer.xp.image.URL">
+                            <span>{{buyer.ID}}</span>
+                        </td>
                         <td>{{buyer.Name}}</td>
                     </tr>
                     </tbody>
