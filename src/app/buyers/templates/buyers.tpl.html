@@ -1,7 +1,7 @@
 <ui-view>
     <article class="container-fluid">
         <h3 class="page-header">
-            Buyers
+            Buyer Sites
         </h3>
         <ordercloud-search servicename="Buyers" controlleras="buyers"></ordercloud-search>
         <div class="well well-lg text-center" ng-if="!buyers.list.Items.length">
@@ -43,13 +43,13 @@
                             <img class="buyer-logo" src="{{buyer.xp.image.URL}}" ng-if="buyer.xp.image.URL">
                             <span ng-if="!buyer.xp.image.URL">{{buyer.Name}}</span>
                         </td>
-                        <td><a href="#">www.bosch.redwingshoes.com</a></td>
+                        <td><a href="#">{{buyer.xp.website}}</a></td>
                         <td><span>{{buyer.ID}}</span></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </section>
-        <button type="button" class="btn btn-success" ui-sref=".create"><i class="fa fa-plus-circle"></i> Create New</button>
+        <button type="button" class="btn btn-success" ui-sref=".create"><i class="fa fa-plus-circle"></i> New Buyer Site</button>
     </article>
 </ui-view>
