@@ -22,6 +22,9 @@
                             <div>Name</div>
                         </th>
                         <th>
+                            <div>URL</div>
+                        </th>
+                        <th>
                             <div>ID</div>
                         </th>
                     </tr>
@@ -38,8 +41,9 @@
                         </td>
                         <td>
                             <img class="buyer-logo" src="{{buyer.xp.image.URL}}" ng-if="buyer.xp.image.URL">
-                            <span>{{buyer.Name}}</span>
+                            <span ng-if="!buyer.xp.image.URL">{{buyer.Name}}</span>
                         </td>
+                        <td><a href="#">www.bosch.redwingshoes.com</a></td>
                         <td><span>{{buyer.ID}}</span></td>
                     </tr>
                     </tbody>
