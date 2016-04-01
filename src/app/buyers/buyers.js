@@ -38,6 +38,26 @@ function BuyerConfig( $stateProvider ) {
             templateUrl: 'buyers/templates/buyerCreate.tpl.html',
             controller: 'BuyerCreateCtrl',
             controllerAs: 'buyerCreate'
+        })
+        .state( 'buyers.create.step01', {
+            url: '/step01',
+            templateUrl: 'buyers/templates/buyerCreate-step01.tpl.html'
+        })
+        .state( 'buyers.create.step02', {
+            url: '/step02',
+            templateUrl: 'buyers/templates/buyerCreate-step02.tpl.html'
+        })
+        .state( 'buyers.create.step03', {
+            url: '/step03',
+            templateUrl: 'buyers/templates/buyerCreate-step03.tpl.html'
+        })
+        .state( 'buyers.create.step04', {
+            url: '/step04',
+            templateUrl: 'buyers/templates/buyerCreate-step04.tpl.html'
+        })
+        .state( 'buyers.create.step05', {
+            url: '/step05',
+            templateUrl: 'buyers/templates/buyerCreate-step05.tpl.html'
         });
 }
 
