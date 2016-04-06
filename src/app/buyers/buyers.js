@@ -58,6 +58,10 @@ function BuyerConfig( $stateProvider ) {
         .state( 'buyers.create.step05', {
             url: '/step05',
             templateUrl: 'buyers/templates/buyerCreate-step05.tpl.html'
+        })
+        .state( 'buyers.create.step06', {
+                url: '/step06',
+                templateUrl: 'buyers/templates/buyerCreate-step06.tpl.html'
         });
 }
 
