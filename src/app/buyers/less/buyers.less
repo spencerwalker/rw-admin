@@ -1,3 +1,47 @@
 .buyer-logo {
   max-width: 200px;
 }
+
+.status-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: @dashboard-leftnav-bg;
+  border-radius: @border-radius-base;
+
+  a {
+    flex: 1;
+    color: #000;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-right: 1px solid @dashboard-leftnav-border;
+    text-align: center;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &.active {
+      color: @brand-primary;
+
+      span {
+        background: @brand-primary;
+      }
+    }
+  }
+
+  span {
+    color: #fff;
+    background: #000;
+    display: block;
+    height: 30px;
+    margin: 0 auto 10px;
+    padding-top: 5px;
+    width: 30px;
+    border-radius: 50%;
+  }
+}

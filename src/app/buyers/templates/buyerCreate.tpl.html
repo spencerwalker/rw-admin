@@ -1,35 +1,17 @@
 <article class="container-fluid">
     <h3>
-        <b>Create New Buyer Site</b>
+        <b>Create New Microsite</b>
     </h3>
 
-    <form ng-submit="buyer.Submit()" name="BuyerEditForm">
-        <div class="row">
-            <div class="form-group col-md-6">
-                <label for="buyer_id">ID</label>
-                <input id="buyer_id" type="text" ordercloud-auto-id ng-model="buyerCreate.buyer.ID" class="form-control">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="buyer_name">Name</label>
-                <input id="buyer_name" type="text" ng-model="buyerCreate.buyer.Name" class="form-control" required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-6">
-                <label for="buyer_analytics">Analytics ID</label>
-                <input id="buyer_analytics" type="text" ng-model="buyerCreate.buyer.xp.analytics_code" class="form-control">
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-6">
-                <label for="buyer_active">
-                    <input id="buyer_active" type="checkbox" ng-model="buyerCreate.buyer.Active"> Active
-                </label>
-            </div>
-        </div>
-        <div class="form-group">
-            <button class="btn btn-primary" ng-click="buyerCreate.Submit();" type="button" ng-disabled="BuyerEditForm.$invalid">Save</button>
-            <button class="btn btn-default" ui-sref="^" type="button">Cancel</button>
-        </div>
-    </form>
+    <!-- the links to our nested states using relative paths -->
+    <!-- add the active class if the state matches our ui-sref -->
+    <div class="status-buttons">
+        <a ui-sref-active="active" ui-sref=".step01"><span>1</span> Branding</a>
+        <a ui-sref-active="active" ui-sref=".step02"><span>2</span> Users</a>
+        <a ui-sref-active="active" ui-sref=".step03"><span>3</span> Prices Lists</a>
+        <a ui-sref-active="active" ui-sref=".step04"><span>4</span> Payment Methods</a>
+        <a ui-sref-active="active" ui-sref=".step05"><span>5</span> Deploy</a>
+    </div>
+
+    <div id="site-wizard" ui-view></div>
 </article>
