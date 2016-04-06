@@ -60,7 +60,7 @@ function UserEditController( $exceptionHandler, $state, OrderCloud, SelectedUser
         vm.user.TermsAccepted = today;
         OrderCloud.Users.Update(userid, vm.user)
             .then(function() {
-                $state.go('users', {}, {reload:true})
+                $state.go('buyers.create.step03', {}, {reload:true})
             })
             .catch(function(ex) {
                 $exceptionHandler(ex)
@@ -78,7 +78,7 @@ function UserEditController( $exceptionHandler, $state, OrderCloud, SelectedUser
     }
 }
 
-function UserCreateController( $exceptionHandler, $state, OrderCloud ) {
+function UserCreateController( $exceptionHandler, $state, OrderCloud, toastr ) {
     var vm = this;
     vm.user = {Email:"", Password:""};
     vm.Submit = function() {
@@ -86,7 +86,8 @@ function UserCreateController( $exceptionHandler, $state, OrderCloud ) {
         vm.user.TermsAccepted = today;
         OrderCloud.Users.Create( vm.user)
             .then(function() {
-                $state.go('users', {}, {reload:true})
+                $state.go('buyers.create.step02', {}, {reload:true});
+                toastr.success('New User Created!', 'Success');
             })
             .catch(function(ex) {
                 $exceptionHandler(ex)
