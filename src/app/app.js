@@ -88,7 +88,16 @@ function Interceptor( $httpProvider ) {
                     $rootScope.$broadcast('OC:AccessInvalidOrExpired');
                 }
                 return $q.reject(rejection);
+            },
+
+            'requestInterceptor': function(config){
+                console.log(config);
+                console.log(JSON.stringify(config));
+                console.log('this just happened');
+                return config;
             }
+
+
         };
     });
 }
