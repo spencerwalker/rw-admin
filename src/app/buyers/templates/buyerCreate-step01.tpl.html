@@ -21,16 +21,21 @@
     </div>
     <div class="row">
         <div class="form-group col-md-6">
+            <label for="buyer_color"Theme Color</label>
+            <input id="buyer_color" type="text" ng-model="buyerCreate.buyer.xp.website.color" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
             <label for="buyer_active">
                 <input id="buyer_active" type="checkbox" ng-model="buyerCreate.buyer.Active"> Active
             </label>
         </div>
     </div>
+    <ordercloud-file-upload model="buyerCreate.buyer" keyname="image" label="Image"></ordercloud-file-upload>
     <div class="form-group">
         <button class="btn btn-primary" ng-click="buyerCreate.Submit();" type="button" ng-disabled="BuyerEditForm.$invalid">Save</button>
         <button class="btn btn-default" ui-sref="^" type="button">Cancel</button>
         <!-- <button class="btn btn-primary" ui-sref="buyers.create.step02" type="button">Next</button> -->
     </div>
-    <ordercloud-file-upload model="categoryCreate.category" keyname="image" label="Image"></ordercloud-file-upload>
-
 </form>
