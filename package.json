@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/Four51/OrderCloud-Components#readme",
   "dependencies": {
+    "angular-bootstrap-colorpicker": "^3.0.25",
     "bower": "1.7.7",
     "browser-sync": "^2.11.2",
     "del": "^2.2.0",

@@ -21,8 +21,11 @@
     </div>
     <div class="row">
         <div class="form-group col-md-6">
-            <label for="buyer_color"Theme Color</label>
-            <input id="buyer_color" type="text" ng-model="buyerCreate.buyer.xp.website.color" class="form-control">
+            <label for="buyer_color">Theme Color</label>
+            <input colorpicker ng-model="buyerCreate.buyer.xp.website.color" type="text">
+        </div>
+        <div class="form-group col-md-6">
+            <ordercloud-file-upload model="buyerCreate.buyer" keyname="image" label="Image"></ordercloud-file-upload>
         </div>
     </div>
     <div class="row">
@@ -32,10 +35,9 @@
             </label>
         </div>
     </div>
-    <ordercloud-file-upload model="buyerCreate.buyer" keyname="image" label="Image"></ordercloud-file-upload>
     <div class="form-group">
-        <button class="btn btn-primary" ng-click="buyerCreate.Submit();" type="button" ng-disabled="BuyerEditForm.$invalid">Save</button>
-        <button class="btn btn-default" ui-sref="^" type="button">Cancel</button>
+        <button class="btn btn-primary pull-right" ng-click="buyerCreate.Submit();" type="button" ng-disabled="BuyerEditForm.$invalid">Next</button>
+        <button class="btn btn-default pull-right" ui-sref="^" type="button">Cancel</button>
         <!-- <button class="btn btn-primary" ui-sref="buyers.create.step02" type="button">Next</button> -->
     </div>
 </form>
