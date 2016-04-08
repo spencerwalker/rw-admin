@@ -7,7 +7,7 @@ angular.module( 'orderCloud', [
         'ui.router',
         'ui.bootstrap',
         'orderCloud.sdk',
-	'LocalForageModule',
+	    'LocalForageModule',
         'toastr',
         'jcs-autoValidate',
         'ordercloud-infinite-scroll',
@@ -18,7 +18,8 @@ angular.module( 'orderCloud', [
         'ordercloud-auto-id',
         'ordercloud-current-order',
         'ordercloud-address',
-        'ordercloud-lineitems'
+        'ordercloud-lineitems',
+        'colorpicker.module'
     ])
 
     .run( SetBuyerID )
