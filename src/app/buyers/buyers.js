@@ -4,6 +4,7 @@ angular.module( 'orderCloud' )
     .controller( 'BuyerCtrl', BuyerController )
     .controller( 'BuyerEditCtrl', BuyerEditController )
     .controller( 'BuyerCreateCtrl', BuyerCreateController )
+    .controller( 'BuyersProductListController', BuyersProductListController)
 
 ;
 
@@ -45,7 +46,14 @@ function BuyerConfig( $stateProvider ) {
         })
         .state( 'buyers.create.step02', {
             url: '/step02',
-            templateUrl: 'buyers/templates/buyerCreate-step02.tpl.html'
+            templateUrl: 'buyers/templates/buyerCreate-step02.tpl.html',
+            controller: 'BuyersProductListController',
+            controllerAs: 'step2',
+            resolve: {
+                ProductList: function(OrderCloud){
+                    return OrderCloud.Products.List();
+                }
+            }
         })
         .state( 'buyers.create.step03', {
             url: '/step03',
@@ -106,4 +114,12 @@ function BuyerCreateController($exceptionHandler, $state, OrderCloud, toastr) {
                 $exceptionHandler(ex);
             });
     }
+}
+
+function BuyersProductListController(ProductList,Underscore){
+    var vm = this;
+    vm.products = Underscore.uniq(ProductList.Items, false, function(product){
+        return product.Name;
+    });
+
 }
