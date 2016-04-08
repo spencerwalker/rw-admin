@@ -116,10 +116,57 @@ function BuyerCreateController($exceptionHandler, $state, OrderCloud, toastr) {
     }
 }
 
-function BuyersProductListController(ProductList,Underscore){
+function BuyersProductListController(ProductList,Underscore, $q, OrderCloud, toastr){
     var vm = this;
     vm.products = Underscore.uniq(ProductList.Items, false, function(product){
         return product.Name;
     });
+
+
+    vm.selected = [];
+
+    vm.toggleSelection = function(index){
+        vm.selected[index] === index ? vm.selected[index] = null : vm.selected[index] = index;
+    };
+
+    vm.addToCatalog = function(){
+
+        function getNonNullValues(){
+            var nonNullProducts = [];
+            angular.forEach(vm.selected, function(product){
+                (product === null) ? angular.noop() : nonNullProducts.push(product);
+            });
+            return nonNullProducts;
+        }
+
+        var nonNull = getNonNullValues();
+
+        var dfd = $q.defer();
+        var queue = [];
+
+        angular.forEach(nonNull, (function(productIndex){
+
+            delete vm.products[productIndex].ID;
+            queue.push(OrderCloud.Products.Create(vm.products[productIndex]) )
+        }));
+
+        $q.all(queue)
+            .then(function(){
+                if(nonNull.length){
+                    toastr.success('The selected Products were added to your Catalog!', 'Success');
+                    dfd.resolve();
+                } else{
+                    toastr.warning('No products were selected', 'Warning');
+                    dfd.resolve();
+                }
+            })
+            .catch(function(){
+                dfd.reject();
+                toastr.error('There was a problem adding the products to your Catalog', 'Error');
+            });
+
+        return dfd.promise;
+    };
+
 
 }
