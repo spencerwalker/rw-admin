@@ -54,6 +54,7 @@
 margin-top: -5px;
 }
 
+//Funky radio selector styles
 .funkyradio {
   div {
     clear: both;
@@ -127,13 +128,24 @@ margin-top: -5px;
       }
     }
   }
+
+  &-danger {
+    input {
+      &[type="checkbox"] {
+        &:checked {
+          & ~ label {
+            &:before {
+              color: #fff;
+              background-color: #DC1D3B;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-.funkyradio-danger input[type="checkbox"]:checked ~ label:before {
-  color: #fff;
-  background-color: #DC1D3B;
-}
-
+//Step 02: Products
 .selected {
   border: 1px;
   color:red;
