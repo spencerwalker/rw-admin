@@ -118,41 +118,31 @@ function BuyerCreateController($exceptionHandler, $state, OrderCloud, toastr) {
 
 function BuyersProductListController(ProductList,Underscore, $q, OrderCloud, toastr){
     var vm = this;
-    vm.products = Underscore.uniq(ProductList.Items, false, function(product){
-        return product.Name;
+    vm.products = Underscore.uniq(ProductList.Items, false, function(uniqueproduct){
+        return uniqueproduct.Name;
     });
 
 
-    vm.selected = [];
-
-    vm.toggleSelection = function(index){
-        vm.selected[index] === index ? vm.selected[index] = null : vm.selected[index] = index;
+    vm.toggleSelection = function(product){
+        product.selected = !product.selected;
     };
 
     vm.addToCatalog = function(){
 
-        function getNonNullValues(){
-            var nonNullProducts = [];
-            angular.forEach(vm.selected, function(product){
-                (product === null) ? angular.noop() : nonNullProducts.push(product);
-            });
-            return nonNullProducts;
-        }
-
-        var nonNull = getNonNullValues();
-
+        var selectedProducts =[];
+        var queue =[];
         var dfd = $q.defer();
-        var queue = [];
 
-        angular.forEach(nonNull, (function(productIndex){
-
-            delete vm.products[productIndex].ID;
-            queue.push(OrderCloud.Products.Create(vm.products[productIndex]) )
-        }));
+        angular.forEach(vm.products, function(product){
+            if(product.selected){
+                delete product.ID;
+                selectedProducts.push(product);
+            }
+        });
 
         $q.all(queue)
             .then(function(){
-                if(nonNull.length){
+                if(selectedProducts.length){
                     toastr.success('The selected Products were added to your Catalog!', 'Success');
                     dfd.resolve();
                 } else{
