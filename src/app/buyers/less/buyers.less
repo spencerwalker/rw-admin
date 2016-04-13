@@ -57,8 +57,8 @@ margin-top: -5px;
 //Funky radio selector styles
 .funkyradio {
   div {
-    clear: both;
-    overflow: hidden;
+    //clear: both;
+    //overflow: hidden;
   }
 
   label {
@@ -75,9 +75,9 @@ margin-top: -5px;
 
         & ~ label {
           position: relative;
-          line-height: 2.5em;
-          text-indent: 3.25em;
-          margin-top: 2em;
+          line-height: 3.5rem;
+          padding: 1rem 1rem 1rem 5.5rem;
+          margin-top: 3rem;
           cursor: pointer;
           -webkit-user-select: none;
           -moz-user-select: none;
@@ -87,36 +87,33 @@ margin-top: -5px;
           &:before {
             position: absolute;
             display: block;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            content: '';
-            width: 2.5em;
-            background: #D1D3D4;
-            border-radius: 3px 0 0 3px;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 1rem;
+            width: 3.5rem;
+            background: @gray-light;
+            border-radius: 50px;
           }
         }
       }
 
-      &:hover {
         &:not {
           &(:checked) {
             & ~ label {
-              color: #888;
+              color: @gray-light;
+              background-color: @gray-lighter;
 
               &:before {
                 content: '\2714';
                 text-indent: .9em;
-                color: #C2C2C2;
+                color: @gray-lighter;
               }
             }
           }
         }
-      }
 
       &:checked {
         & ~ label {
-          color: #777;
 
           &:before {
             content: '\2714';

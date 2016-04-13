@@ -1,9 +1,50 @@
 <div class="step02ProductList">
 
     <h3 ng-if="step2.products.length > 0" class="page-header">
-        {{step2.products.length > 1 ? 'Products' : 'Product'}} <button class="btn btn-primary addToCatalog" ng-click="step2.addToCatalog()">Add Selected Products<br>To My Catalog</button>
+        {{step2.products.length > 1 ? 'Products' : 'Product'}} <!--<button class="btn btn-primary addToCatalog" ng-click="step2.addToCatalog()">Add Selected Products<br>To My Catalog</button>-->
     </h3>
-    <div class="product-list row">
+    <div class="funkyradio">
+        <div class="funkyradio-danger row">
+            <div class="col-md-12">
+                <input type="checkbox" name="checkbox" id="checkbox1" checked/>
+                <label for="checkbox1">Category 1</label>
+            </div>
+        </div>
+        <div class="funkyradio-danger row">
+            <div class="col-md-12">
+                <input type="checkbox" name="checkbox" id="checkbox2" checked/>
+                <label for="checkbox2">SubCategory 1</label>
+            </div>
+        </div>
+        <div class="funkyradio-danger row">
+            <div class="col-md-12">
+                <input type="checkbox" name="checkbox" id="checkbox3" checked/>
+                <label for="checkbox3">
+                    <div class="row">
+                        <div class="col-md-1">
+                            img
+                        </div>
+                        <div class="col-md-11">
+                            Product 1 Name/ID
+                        </div>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="funkyradio-danger row">
+            <div class="col-md-12">
+                <input type="checkbox" name="checkbox" id="checkbox4" checked/>
+                <label for="checkbox4">Product 2</label>
+            </div>
+        </div>
+        <div class="funkyradio-danger row">
+            <div class="col-md-12">
+                <input type="checkbox" name="checkbox" id="checkbox5" checked/>
+                <label for="checkbox5">Product 3</label>
+            </div>
+        </div>
+    </div>
+<!--    <div class="product-list row">
         <div class="col-md-3" ng-repeat="product in step2.products" ng-class="{selected: product.selected}" ng-click="step2.toggleSelection(product)" >
             <div class="product-item">
                 <h3 class="item-name">{{product.Name || product.ID}}</h3>
@@ -13,7 +54,7 @@
                         <i class="fa fa-camera fa-stack-1x"></i>
                         <i class="fa fa-ban fa-stack-2x text-danger"></i>
                     </span>
-                    <div ng-if="product.xp.image" class="selectedImages" ng-click="step2.toggleSelection(product)">
+                    <div ng-if="product.xp.image" class="selectedImages">
                         <img class="img-responsive" ng-src="{{product.xp.image.URL}}" alt="Product Image">
                     </div>
                 </div>
@@ -22,6 +63,6 @@
                 <div class="item-description" ng-if="product.Description"><p>{{product.Description}}</p></div>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 
