@@ -77,7 +77,7 @@ margin-top: -5px;
           position: relative;
           line-height: 3.5rem;
           padding: 1rem 1rem 1rem 5.5rem;
-          margin-top: 3rem;
+          //margin-top: 3rem;
           cursor: pointer;
           -webkit-user-select: none;
           -moz-user-select: none;
@@ -97,20 +97,20 @@ margin-top: -5px;
         }
       }
 
-        &:not {
-          &(:checked) {
-            & ~ label {
-              color: @gray-light;
-              background-color: @gray-lighter;
+      &:not {
+        &(:checked) {
+          & ~ label {
+            color: @gray-light;
+            background-color: @gray-lighter;
 
-              &:before {
-                content: '\2714';
-                text-indent: .9em;
-                color: @gray-lighter;
-              }
+            &:before {
+              content: '\2714';
+              text-indent: .9em;
+              color: @gray-lighter;
             }
           }
         }
+      }
 
       &:checked {
         & ~ label {
@@ -140,22 +140,69 @@ margin-top: -5px;
       }
     }
   }
+
+  &.product-wrap {
+    input {
+      &[type="checkbox"] {
+        &:empty {
+
+          & ~ label {
+            padding: 0;
+
+            &:before {
+              top: 1rem;
+              transform: none;
+              z-index: 1;
+            }
+          }
+        }
+        &:not {
+          &(:checked) {
+            & ~ label {
+
+              img {
+                opacity: .5;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 //Step 02: Products
-.selected {
-  border: 5px;
-  color:red;
+.buyer-category {
+
 }
 
-.unselected {
-  //dickbutt
-  //moredickbutt
+.category-wrap {
+  border: 1px solid @gray-light;
+  border-radius: @border-radius-base;
+  padding: 2rem;
 }
 
-.addToCatalog {
-  float:right;
-  padding-right:20px;
-  position:relative;
-  bottom:25px;
+.buyer-subcategory {
 }
+
+.buyer-product {
+}
+
+.product-descrip {
+  padding: 1rem;
+}
+
+//.selected {
+//  border: 5px;
+//  color:red;
+//}
+//
+//.unselected {
+//}
+//
+//.addToCatalog {
+//  float:right;
+//  padding-right:20px;
+//  position:relative;
+//  bottom:25px;
+//}
