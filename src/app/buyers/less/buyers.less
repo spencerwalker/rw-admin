@@ -97,20 +97,6 @@ margin-top: -5px;
         }
       }
 
-      &:not {
-        &(:checked) {
-          & ~ label {
-            color: @gray-light;
-            background-color: @gray-lighter;
-
-            &:before {
-              content: '\2714';
-              text-indent: .9em;
-              color: @gray-lighter;
-            }
-          }
-        }
-      }
 
       &:checked {
         & ~ label {
