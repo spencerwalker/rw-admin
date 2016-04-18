@@ -3,7 +3,7 @@
     <h3 ng-if="step2.products.length > 0" class="page-header">
         {{step2.products.length > 1 ? 'Products' : 'Product'}} <!--<button class="btn btn-primary addToCatalog" ng-click="step2.addToCatalog()">Add Selected Products<br>To My Catalog</button>-->
     </h3>
-        <div class="row">
+    <div class="row">
             <div class="col-md-12">
 
                 <div class="category-wrap">
@@ -730,25 +730,13 @@
 
             </div>
         </div>
-<!--    <div class="product-list row">
-        <div class="col-md-3" ng-repeat="product in step2.products" ng-class="{selected: product.selected}" ng-click="step2.toggleSelection(product)" >
-            <div class="product-item">
-                <h3 class="item-name">{{product.Name || product.ID}}</h3>
-                <p class="item-id" ng-if="product.Name">{{product.ID}}</p>
-                <div class="thumbnail-image">
-                    <span class="fa-stack fa-5x" ng-if="!product.xp.image" >
-                        <i class="fa fa-camera fa-stack-1x"></i>
-                        <i class="fa fa-ban fa-stack-2x text-danger"></i>
-                    </span>
-                    <div ng-if="product.xp.image" class="selectedImages">
-                        <img class="img-responsive" ng-src="{{product.xp.image.URL}}" alt="Product Image">
-                    </div>
-                </div>
-                <div class="item-price"><p>{{product.StandardPriceSchedule.PriceBreaks[0].Price | currency}} x
-                    {{product.StandardPriceSchedule.PriceBreaks[0].Quantity}}</p></div>
-                <div class="item-description" ng-if="product.Description"><p>{{product.Description}}</p></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group pull-right">
+                <button class="btn btn-default" ui-sref=".buyers.templates.buyers" type="button">Cancel</button>
+                <button class="btn btn-primary" ui-sref="buyers.create.step03" type="button" ng-disabled="BuyerEditForm.$invalid">Next</button>
             </div>
         </div>
-    </div>-->
+    </div>
 </div>
 
