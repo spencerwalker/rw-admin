@@ -107,6 +107,7 @@ function UserCreateController( $exceptionHandler, $state, OrderCloud, $cookieSto
             $cookieStore.put('usersCreated', userArray);
 
             userArray = userArray.join("\n");
+            vm.createdUsers = userArray;
             toastr.success('Congratulations you have created the following users: ' + userArray, 'Success');
         } else{
             $cookieStore.put('usersCreated', newUser);
@@ -121,5 +122,18 @@ function UserCreateController( $exceptionHandler, $state, OrderCloud, $cookieSto
         storeCookie();
         $cookieStore.remove('usersCreated');
     };
+
+    vm.defaultSubmit = function(){
+        var today = new Date();
+        vm.user.TermsAccepted = today;
+        OrderCloud.Users.Create( vm.user)
+            .then(function() {
+                $state.go('users', {}, {reload:true});
+                toastr.success('User Created', 'Success');
+            })
+            .catch(function(ex) {
+                $exceptionHandler(ex)
+            });
+        };
 }
 
