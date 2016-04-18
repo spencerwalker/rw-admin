@@ -1,3 +1,6 @@
+<h3 class="page-header">
+    <b>Branding</b>
+</h3>
 <form ng-submit="buyer.Submit()" name="BuyerEditForm" novalidate>
     <div class="row">
 <!--
@@ -7,13 +10,11 @@
         </div>
 -->
         <div class="form-group col-md-6">
-            <label for="buyer_name">Name</label>
+            <label for="buyer_name">Microsite Name</label>
             <input id="buyer_name" type="text" ng-model="buyerCreate.buyer.Name" class="form-control" required>
         </div>
-<!--
     </div>
     <div class="row">
--->
 <!--
         <div class="form-group col-md-6">
             <label for="buyer_analytics">Analytics ID</label>
@@ -28,10 +29,13 @@
     <div class="row">
         <div class="form-group col-md-6">
             <label for="buyer_color">Theme Color</label>
-            <input id="buyer_color" colorpicker ng-model="buyerCreate.buyer.xp.website.color" type="text">
+            <input id="buyer_color" colorpicker ng-model="buyerCreate.buyer.xp.website.color" type="text" class="form-control">
         </div>
+    </div>
+    <div class="row">
         <div class="form-group col-md-6">
-            <ordercloud-file-upload model="buyerCreate.buyer" keyname="image" label="Image"></ordercloud-file-upload>
+            <span><strong>Logo</strong></span>
+            <ordercloud-file-upload model="buyerCreate.buyer" keyname="image"></ordercloud-file-upload>
         </div>
     </div>
     <div class="row">
