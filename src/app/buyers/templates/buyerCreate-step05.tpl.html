@@ -2,22 +2,28 @@
     <h3 class="page-header">
         <b>Payment Methods</b>
     </h3>
-    <div class="col-md-4">
-        <div class="funkyradio">
-            <div class="funkyradio-danger">
-                <input type="checkbox" name="checkbox" id="checkbox1" checked/>
-                <label for="checkbox1">Credit Card</label>
-            </div>
-            <div class="funkyradio-danger">
-                <input type="checkbox" name="checkbox" id="checkbox2" checked/>
-                <label for="checkbox2">Invoice</label>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="funkyradio">
+                <div class="funkyradio-danger">
+                    <input type="checkbox" name="checkbox" id="checkbox1" checked/>
+                    <label for="checkbox1">Credit Card</label>
+                </div>
+                <div class="funkyradio-danger">
+                    <input type="checkbox" name="checkbox" id="checkbox2" checked/>
+                    <label for="checkbox2">Invoice</label>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-12">
-        <div class="form-group pull-right">
-            <button class="btn btn-default" ui-sref=".buyers.templates.buyers" type="button">Cancel</button>
-            <button class="btn btn-primary" ui-sref="buyers.create.step06" type="button" ng-disabled="BuyerEditForm.$invalid">Continue</button>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="button-container">
+                <div class="form-group pull-right">
+                    <button class="btn btn-default" ui-sref=".buyers.templates.buyers" type="button">Cancel</button>
+                    <button class="btn btn-primary" ui-sref="buyers.create.step06" type="button" ng-disabled="BuyerEditForm.$invalid">Continue</button>
+                </div>
+            </div>
         </div>
     </div>
 </article>
