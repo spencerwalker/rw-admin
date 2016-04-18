@@ -86,7 +86,7 @@ function UserCreateController( $exceptionHandler, $state, OrderCloud ) {
         vm.user.TermsAccepted = today;
         OrderCloud.Users.Create( vm.user)
             .then(function() {
-                $state.go('users', {}, {reload:true})
+                $state.go('buyers.create.step03', {}, {reload:true})
             })
             .catch(function(ex) {
                 $exceptionHandler(ex)
