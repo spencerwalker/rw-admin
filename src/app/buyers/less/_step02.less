@@ -1,35 +1,94 @@
 //Step 02: Products
-.buyer-category {
+h4 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
+h5 {
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .category-wrap {
-  border: 1px solid @gray-light;
-  border-radius: @border-radius-base;
-  padding: 2rem;
-}
-
-.buyer-subcategory {
-}
-
-.buyer-product {
+  //border: 1px solid @gray-lighter;
+  //border-radius: @border-radius-base;
+  //padding: 2rem;
 }
 
 .product-descrip {
+  font-size: 1rem;
+  line-height: 120%;
+  font-weight: bold;
   padding: 1rem;
+  display: block;
 }
 
-//.selected {
-//  border: 5px;
-//  color:red;
-//}
-//
-//.unselected {
-//}
-//
-//.addToCatalog {
-//  float:right;
-//  padding-right:20px;
-//  position:relative;
-//  bottom:25px;
-//}
+//Funky radio selector styles
+.funkyradio {
+  &.category-header,
+  &.subcategory-header {
+
+    label {
+      width: auto;
+      border: none;
+    }
+
+    input {
+      &[type="checkbox"] {
+        &:empty {
+          display: none;
+
+          & ~ label {
+            position: relative;
+            line-height: 2.5rem;
+            padding: 1rem 1rem 1rem 4rem;
+            //margin-top: 3rem;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            &:before {
+              position: absolute;
+              display: block;
+              top: 50%;
+              transform: translateY(-50%);
+              left: 0;
+              width: 2.5rem;
+              background: @gray-light;
+              border-radius: @border-radius-base;
+            }
+          }
+        }
+
+        &:not {
+          &(:checked) {
+            & ~ label {
+              color: @gray-light;
+              background-color: #FFFFFF;
+
+              &:before {
+                content: '\2714';
+                text-indent: .5em;
+                color: @gray-lighter;
+              }
+            }
+          }
+        }
+
+        &:checked {
+          & ~ label {
+
+            &:before {
+              content: '\2714';
+              text-indent: .5em;
+              color: #FFFFFF;
+              background-color: @gray;
+            }
+          }
+        }
+      }
+    }
+  }
+}
