@@ -57,7 +57,7 @@ function BuyerConfig( $stateProvider ) {
         })
         .state( 'buyers.create.step03', {
             url: '/step03',
-            templateUrl: 'users/templates/userCreate.tpl.html',
+            templateUrl: 'buyers/templates/buyerCreate-step03.tpl.html',
             controller: 'UserCreateCtrl',
             controllerAs: 'userCreate'
         })
