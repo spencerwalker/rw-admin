@@ -4,10 +4,12 @@
     </h3>
     <form name="UserCreateForm" ng-submit="userCreate.Submit()" novalidate>
         <div class="row">
+<!--
             <div class="col-sm-6 form-group">
                 <label for="userIDInput">User ID</label>
                 <input id="userIDInput" ordercloud-auto-id type="text" class="form-control" ng-model="userCreate.user.ID"/>
             </div>
+-->
             <div class="form-group col-sm-6">
                 <label for="userNameInput">User Name</label>
                 <input id="userNameInput" type="text" class="form-control" ng-model="userCreate.user.Username" required/>
@@ -18,6 +20,8 @@
                 <label for="userFirstNameInput">First Name</label>
                 <input id="userFirstNameInput" type="text" class="form-control" ng-model="userCreate.user.FirstName" required/>
             </div>
+        </div>
+        <div class="row">
             <div class="col-sm-6 form-group">
                 <label for="userLastNameInput">Last Name</label>
                 <input id="userLastNameInput" type="text" class="form-control" ng-model="userCreate.user.LastName" required/>
@@ -29,6 +33,8 @@
                 <label for="userPhoneNumberInput">Phone Number</label>
                 <input id="userPhoneNumberInput" type="text" class="form-control" ng-model="userCreate.user.Phone" />
             </div>
+        </div>
+        <div class="row">
             <div class="form-group col-sm-6">
                 <label for="userEmailAddressInput">Email Address</label>
                 <input id="userEmailAddressInput" type="text" class="form-control" ng-model="userCreate.user.Email" required/>
