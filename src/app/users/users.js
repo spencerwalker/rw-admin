@@ -78,7 +78,7 @@ function UserEditController( $exceptionHandler, $state, OrderCloud, SelectedUser
     }
 }
 
-function UserCreateController( $exceptionHandler, $state, OrderCloud ) {
+function UserCreateController( $exceptionHandler, $state, OrderCloud, $cookieStore, toastr ) {
     var vm = this;
     vm.user = {Email:"", Password:""};
     vm.Submit = function() {
@@ -86,10 +86,40 @@ function UserCreateController( $exceptionHandler, $state, OrderCloud ) {
         vm.user.TermsAccepted = today;
         OrderCloud.Users.Create( vm.user)
             .then(function() {
-                $state.go('buyers.create.step03', {}, {reload:true})
+                $state.go('buyers.create.step03', {}, {reload:true});
+                storeCookie();
             })
             .catch(function(ex) {
                 $exceptionHandler(ex)
             });
-    }
+    };
+
+    var storeCookie = function(){
+        var newUser = vm.user.FirstName + " " + vm.user.LastName + "\n";
+        var userArray = [];
+        var savedUsers;
+
+        if($cookieStore.get('usersCreated')){
+            savedUsers = $cookieStore.get('usersCreated');
+            userArray.push(savedUsers);
+            userArray.push(newUser);
+            $cookieStore.remove('usersCreated');
+            $cookieStore.put('usersCreated', userArray);
+
+            userArray = userArray.join("\n");
+            toastr.success('Congratulations you have created the following users: ' + userArray, 'Success');
+        } else{
+            $cookieStore.put('usersCreated', newUser);
+            vm.createdUsers = newUser;
+            toastr.success('Congratulations you have created the following user: ' + newUser, 'Success');
+
+        }
+    };
+
+    vm.goToStep4 = function(){
+        $state.go('buyers.create.step04', {}, {reload:true});
+        storeCookie();
+        $cookieStore.remove('usersCreated');
+    };
 }
+
