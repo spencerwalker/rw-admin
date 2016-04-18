@@ -16,7 +16,7 @@ function BuyerConfig( $stateProvider ) {
             templateUrl: 'buyers/templates/buyers.tpl.html',
             controller: 'BuyerCtrl',
             controllerAs: 'buyers',
-            data: { componentName: 'Buyers' },
+            data: { componentName: 'Microsites' },
             resolve: {
                 BuyerList: function(OrderCloud) {
                     return OrderCloud.Buyers.List();
