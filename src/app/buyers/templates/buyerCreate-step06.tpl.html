@@ -1,1 +1,25 @@
-Step 6!
+<article class="container-fluid">
+    <h3 class="page-header">
+        <b>Deploy</b>
+    </h3>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="customURL">Custom URL</label>
+            <input id="customURL" type="text"  class="form-control">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div>
+            <div >
+                <div ng-show="DEPLOY">
+                    Tanu
+                </div>
+                <div ng-hide="DEPLOY">
+                    Gaurav
+                </div>
+                    <button class="btn btn-lg btn-danger" type="button" value="DEPLOY" ng-click="(DEPLOY=!DEPLOY) && validate"> DEPLOY</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
