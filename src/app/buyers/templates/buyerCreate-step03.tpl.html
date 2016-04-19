@@ -4,15 +4,12 @@
     </h3>
     <form name="UserCreateForm" ng-submit="userCreate.Submit()" novalidate>
         <div class="row">
-            <!--
-                        <div class="col-sm-6 form-group">
-                            <label for="userIDInput">User ID</label>
-                            <input id="userIDInput" ordercloud-auto-id type="text" class="form-control" ng-model="userCreate.user.ID"/>
-                        </div>
-            -->
             <div class="form-group col-sm-6">
                 <label for="userNameInput">User Name</label>
                 <input id="userNameInput" type="text" class="form-control" ng-model="userCreate.user.Username" required/>
+            </div>
+            <div class="col-sm-6">
+                <button class="btn btn-success pull-right">Bulk Upload</button>
             </div>
         </div>
         <div class="row">
