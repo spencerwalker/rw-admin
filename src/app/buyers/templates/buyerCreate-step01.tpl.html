@@ -1,59 +1,49 @@
-<h3 class="page-header">
-    <b>Branding</b>
-</h3>
-<form ng-submit="buyer.Submit()" name="BuyerEditForm" novalidate>
-    <div class="row">
-<!--
-        <div class="form-group col-md-6">
-            <label for="buyer_id">ID</label>
-            <input id="buyer_id" type="text" ordercloud-auto-id ng-model="buyerCreate.buyer.ID" class="form-control">
+<article class="container-fluid">
+    <h3 class="page-header">
+        <b>Branding</b>
+    </h3>
+    <form ng-submit="buyer.Submit()" name="BuyerEditForm" novalidate>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="buyer_name">Microsite Name</label>
+                <input id="buyer_name" type="text" ng-model="buyerCreate.buyer.Name" class="form-control" required>
+            </div>
         </div>
--->
-        <div class="form-group col-md-6">
-            <label for="buyer_name">Microsite Name</label>
-            <input id="buyer_name" type="text" ng-model="buyerCreate.buyer.Name" class="form-control" required>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="buyer_microsite">Microsite URL</label>
+                <input id="buyer_microsite" type="text" ng-model="buyerCreate.buyer.xp.website.URL" class="form-control">
+            </div>
         </div>
-    </div>
-    <div class="row">
-<!--
-        <div class="form-group col-md-6">
-            <label for="buyer_analytics">Analytics ID</label>
-            <input id="buyer_analytics" type="text" ng-model="buyerCreate.buyer.xp.analytics_code" class="form-control">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="buyer_color">Theme Color</label>
+                <input id="buyer_color" colorpicker ng-model="buyerCreate.buyer.xp.website.color" type="text" class="form-control">
+            </div>
         </div>
--->
-        <div class="form-group col-md-6">
-            <label for="buyer_microsite">Microsite URL</label>
-            <input id="buyer_microsite" type="text" ng-model="buyerCreate.buyer.xp.website.URL" class="form-control">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <span><strong>Logo</strong></span>
+                <ordercloud-file-upload model="buyerCreate.buyer" keyname="image"></ordercloud-file-upload>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-6">
-            <label for="buyer_color">Theme Color</label>
-            <input id="buyer_color" colorpicker ng-model="buyerCreate.buyer.xp.website.color" type="text" class="form-control">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="buyer_active">
+                    <input id="buyer_active" type="checkbox" ng-model="buyerCreate.buyer.Active"> Active
+                </label>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-6">
-            <span><strong>Logo</strong></span>
-            <ordercloud-file-upload model="buyerCreate.buyer" keyname="image"></ordercloud-file-upload>
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-6">
-            <label for="buyer_active">
-                <input id="buyer_active" type="checkbox" ng-model="buyerCreate.buyer.Active"> Active
-            </label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="button-container">
-                <div class="form-group pull-right">
-                    <button class="btn btn-default" ui-sref=".buyers.templates.buyers" type="button">Cancel</button>
-                    <button class="btn btn-primary" ng-click="buyerCreate.Submit();" type="button" ng-disabled="BuyerEditForm.$invalid">Continue</button>
-                    <!-- <button class="btn btn-primary" ui-sref="buyers.create.step02" type="button">Next</button> -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="button-container">
+                    <div class="form-group pull-right">
+                        <button class="btn btn-default" ui-sref=".buyers.templates.buyers" type="button">Cancel</button>
+                        <button class="btn btn-primary" ng-click="buyerCreate.Submit();" type="button" ng-disabled="BuyerEditForm.$invalid">Continue</button>
+                        <!-- <button class="btn btn-primary" ui-sref="buyers.create.step02" type="button">Next</button> -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
+</article>
